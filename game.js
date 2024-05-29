@@ -1,6 +1,3 @@
-//Tik Tac Toe Minimax
-//TODO:
-//Organize and comment code
 class Board {
 
     constructor() {
@@ -21,32 +18,32 @@ class Board {
     }
     draw() {
         this.width = document.querySelector(".game-container").clientWidth;
-        let linewidth = this.width/25;
-        
+        let linewidth = this.width / 25;
+
         this.height = this.width;
         document.getElementById("tttBoard").width = this.width;
         document.getElementById("tttBoard").height = this.height;
         var c = document.getElementById("tttBoard");
         var ctx = c.getContext("2d");
-        ctx.fillStlye = "white";
-        ctx.fillRect(0, 0, this.width, this.height);
         ctx.fillStyle = "white";
-        let boxwidth = (this.width / 3)-linewidth/2;
-        let boxheight = (this.height/3)-linewidth/2;
+        ctx.fillRect(0, 0, this.width, this.height);
+        ctx.fillStyle = "black";
+        let boxwidth = (this.width / 3) - linewidth / 2;
+        let boxheight = (this.height / 3) - linewidth / 2;
         ctx.fillRect(boxwidth, 0, linewidth, this.height);  //Left Vertical Line
-        ctx.fillRect(2*boxwidth+linewidth/2, 0, linewidth, this.height); //Right Vertical Line
+        ctx.fillRect(2 * boxwidth + linewidth / 2, 0, linewidth, this.height); //Right Vertical Line
         ctx.fillRect(0, boxheight, this.width, linewidth); //Top Horizontal Line
-        ctx.fillRect(0, 2*boxheight+linewidth/2, this.width, linewidth); //Bottom Horiontal line
+        ctx.fillRect(0, 2 * boxheight + linewidth / 2, this.width, linewidth); //Bottom Horiontal line
         ctx.font = this.width / 3 - 40 + 'px sans-serif';
         for (let i = 0; i < this.board.length; i++) {
             for (let j = 0; j < this.board[i].length; j++) {
                 if (this.board[i][j] == 1) {
                     ctx.fillStyle = "red";
-                    ctx.fillText("X", (i) * this.width/3+2*linewidth, (j + 1) * this.height / 3-2*linewidth);
+                    ctx.fillText("X", (j) * this.width / 3 + 2 * linewidth, (i + 1) * this.height / 3 - 2 * linewidth);
                 }
                 else if (this.board[i][j] == -1) {
                     ctx.fillStyle = "blue";
-                    ctx.fillText("O", (i) * this.width / 3+2*linewidth, (j + 1) * this.height / 3-2*linewidth);
+                    ctx.fillText("O", (j) * this.width / 3 + 2 * linewidth, (i + 1) * this.height / 3 - 2 * linewidth);
                 }
             }
         }
@@ -171,9 +168,8 @@ class Board {
             let rect = canvas.getBoundingClientRect();
             let x = event.clientX - rect.left;
             let y = event.clientY - rect.top;
-            let clickI = Math.min(Math.floor((x / this.width) * 3), 2);
-            let clickJ = Math.min(Math.floor((y / this.height) * 3), 2);
-            //console.log(`Clicked ${clickI},${clickJ}`);
+            let clickI = Math.floor((y / this.height) * 3);
+            let clickJ = Math.floor((x / this.width) * 3);
             if (this.board[clickI][clickJ] == 0) {
                 if (this.humanPlayingX) {
                     this.board[clickI][clickJ] = 1;
@@ -186,25 +182,21 @@ class Board {
 
                 let ai = this.getAIMove(!this.humanPlayingX);
 
-
-
                 if (ai[0] != -1) {
                     this.board[ai[0]][ai[1]] = (this.humanPlayingX ? -1 : 1);
                 }
 
                 let state = this.gameState();
                 if (state[0]) {
-                    
-                    $("#reset").prop("disabled",false);
-                    $("#tttBoard").css("cursor","auto");
+                    $("#reset").prop("disabled", false);
+                    $("#tttBoard").css("cursor", "auto");
                     if (state[1] == 1000) {
                         document.getElementById("game_status").innerHTML = "X Wins!";
                     } else if (state[1] == -1000) {
                         document.getElementById("game_status").innerHTML = "O Wins!";
                     } else {
-                        document.getElementById("game_status").innerHTML = "Its a draw!";
+                        document.getElementById("game_status").innerHTML = "It's a draw!";
                     }
-                    
                 } else {
                     this.playerTurn = true;
                 }
@@ -213,27 +205,24 @@ class Board {
             }
         }
     }
-
 }
+
 var gBoard;
 function reset() {
-    $("#reset").prop("disabled","true");
-    
-    $("#tttBoard").css("cursor","pointer");
+    $("#reset").prop("disabled", "true");
+    $("#tttBoard").css("cursor", "pointer");
     document.getElementById("game_status").innerHTML = "";
-    gBoard=new Board(); 
+    gBoard = new Board();
     gBoard.playerTurn = true;
     document.getElementById("tttBoard").addEventListener('click', function (e) {
         gBoard.processClick(e);
     });
-
 }
+
 $(document).ready(function () {
-    gBoard=new Board();
+    gBoard = new Board();
     document.getElementById("tttBoard").addEventListener('click', function (e) {
         gBoard.processClick(e);
     });
     $("#reset").click();
 });
-
-
