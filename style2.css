@@ -1,0 +1,194 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.header-box {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.img-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+.name-container p {
+    margin: 5px 0;
+}
+
+.languageBox {
+    margin: 20px 0;
+}
+
+.language {
+    width: 50px;
+    margin: 10px;
+}
+
+.links-container {
+    margin-top: 20px;
+}
+
+.links-container a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background: #2a5298;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.links-container a:hover {
+    background: #1e3c72;
+}
+
+.section1, .section2, .section3, .section4 {
+    padding: 40px 20px;
+}
+
+.orange {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.red {
+    background-color: #ff6347;
+    color: #fff;
+}
+
+.custom-shape-divider-bottom, .custom-shape-divider-top {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom svg, .custom-shape-divider-top svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 70px;
+}
+
+.shape-fill {
+    fill: #f5f5f5;
+}
+
+.body-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.welcome-banner {
+    text-align: center;
+}
+
+.welcome-banner h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.welcome-banner p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.about-me {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.about-subsection {
+    width: 300px;
+    margin: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-subsection h3 {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.about-subsection p {
+    font-size: 1em;
+}
+
+.education-skills {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.education, .skills {
+    width: 45%;
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.education ul, .skills ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.education li, .skills li {
+    margin-bottom: 10px;
+}
+
+.game-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.gameBoard {
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.game-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-chooseXO {
+    margin-bottom: 20px;
+}
+
+.RadioLabel {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+#reset {
+    background: #2a5298;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#reset:hover {
+    background: #1e3c72;
+}

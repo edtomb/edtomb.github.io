@@ -359,6 +359,8 @@ button:enabled {
 
 .about-subsection {
     width: 30%;
+    background-color:rgba(0, 0, 0, 0.5);
+    border-radius:5%;
     text-align: center;
 }
 
@@ -373,6 +375,8 @@ button:enabled {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    background-color:rgba(0, 0, 0, 0.5);
+    border-radius: 5%;
     width: 80%;
 }
 
