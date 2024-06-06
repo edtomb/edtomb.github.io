@@ -101,3 +101,13 @@ a:hover {
         flex: 1 1 100%;
     }
 }
+.caption{
+    display:flex;
+    align-items:center; 
+    width:100%;
+    justify-content:center;
+}
+.caption>p{
+    color:#555;
+    text-align: center;
+}
